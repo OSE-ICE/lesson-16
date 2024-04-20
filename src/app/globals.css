@@ -21,9 +21,9 @@
 
 .form-container {
   flex: 0;
-  margin-right: 200px;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-right: 6rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .expenses-container {
