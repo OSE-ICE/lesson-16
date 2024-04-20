@@ -29,3 +29,22 @@
 .expenses-container {
   flex: 3;
 }
+
+header {
+  padding: 10px;
+  background-color: lightskyblue;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #333;
+}
+
+header label {
+  display: flex;
+  align-items: center;
+}

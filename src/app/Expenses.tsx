@@ -1,5 +1,6 @@
-"use client";
 import { ChangeEvent, useEffect, useState, FormEvent } from "react";
+import React, { useContext } from "react";
+import { AdminRightsContext } from "./AdminContext";
 
 type Expense = {
   id: number;
@@ -55,6 +56,7 @@ const deleteExpense = async (id: number): Promise<Expense[]> => {
 };
 
 const Expenses = () => {
+  const isAdminMode = useContext(AdminRightsContext);
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
@@ -113,12 +115,14 @@ const Expenses = () => {
       <div className="expenses-container">
         {expenses.map((expense) => (
           <div className="expense-container" key={expense.id}>
-            <button
-              className="delete-button"
-              onClick={() => handleDelete(expense.id)}
-            >
-              X
-            </button>
+            {isAdminMode && (
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(expense.id)}
+              >
+                X
+              </button>
+            )}
             <h2>{expense.name}</h2>
             <p>Cost: {expense.cost}</p>
           </div>
